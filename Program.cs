@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Models.Context;
+using System.Xml;
 
 namespace WebApplication1
 {
@@ -19,6 +20,9 @@ namespace WebApplication1
             // db 설정
             builder.Services.AddDbContext<ElectionContext>(
                 options => options.UseSqlServer("Server=D662-ETHANLIM;Database=Test07;Trusted_Connection=True;TrustServerCertificate=True"));
+
+            // xml로 내보내기 설정
+            builder.Services.AddControllers().AddXmlSerializerFormatters();
 
             var app = builder.Build();
 
